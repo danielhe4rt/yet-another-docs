@@ -37,6 +37,14 @@ defineOgImageComponent('Docs', {
   headline: headline.value
 })
 
+const mdcVars = ref({
+  phpCodeSnippet: `\`\`\`php
+
+ echo 'hello world';
+
+\`\`\``
+});
+
 const links = computed(() => {
   const links = []
   if (toc?.bottom?.edit) {
@@ -74,6 +82,7 @@ const links = computed(() => {
       <ContentRenderer
         v-if="page"
         :value="page"
+        :data="mdcVars"
       />
 
       <USeparator v-if="surround?.length" />

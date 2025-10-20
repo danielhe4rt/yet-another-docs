@@ -45,6 +45,7 @@ const { header } = useAppConfig()
       <TemplateMenu />
     </template>
 
+
     <template #right>
       <UContentSearchButton
         v-if="header?.search"

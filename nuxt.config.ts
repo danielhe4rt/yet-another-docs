@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
@@ -18,6 +19,23 @@ export default defineNuxtConfig({
   content: {
     build: {
       markdown: {
+        highlight: {
+          langs: [
+            // Read more about Shiki languages: https://shiki.style/guide/load-lang
+            JSON.parse(
+              readFileSync('./app/assets/shiki/bruinpython.json', 'utf-8'),
+            ),
+            JSON.parse(
+              readFileSync('./app/assets/shiki/bruinsql.json', 'utf-8'),
+            ),
+            'yml',
+            'yaml',
+            'sql',
+            'python',
+            'bash',
+            'mermaid'
+          ]
+        },
         toc: {
           searchDepth: 1
         }
